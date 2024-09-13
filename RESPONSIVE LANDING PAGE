@@ -1,0 +1,78 @@
+<nav id="nav">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+CSS:
+```#nav {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background-color: #333;
+color: #fff;
+padding: 1em;
+text-align: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#nav ul {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: space-between;
+}
+#nav li {
+margin-right: 20px;
+}
+
+#nav a {
+text-decoration: none;
+color: #fff;
+transition: color 0.2s ease;
+}
+
+#nav a:hover {
+color: #ccc;
+}
+
+#nav.scrolled {
+background-color: #444;
+color: #fff;
+}
+#nav.scrolled a {
+color: #fff;
+}
+
+#nav.scrolled a:hover {
+color: #ccc;
+}
+
+*JavaScript:*
+
+const nav = document.getElementById('nav');
+
+window.addEventListener('scroll', () => {
+if (window.scrollY > 100) {
+nav.classList.add('scrolled');
+} else {
+nav.classList.remove('scrolled');
+}
+});
+nav.addEventListener('mouseover', (e) => {
+if (e.target.tagName === 'A') {
+e.target.style.color = '#ccc';
+}
+});
+
+nav.addEventListener('mouseout', (e) => {
+if (e.target.tagName === 'A') {
+e.target.style.color = '#fff';
+}
+});
+```
